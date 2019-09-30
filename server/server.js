@@ -53,6 +53,55 @@ app.get('/api/getInstructions', (req,res) => {
         ],
         "input": "This boss is the biggest loser LOL!",
         "output": "Ths bss s th bggst lsr LL!\n",
+      },
+        {
+        "id": 5,
+        "lesson": "Binary Tree Level Order Traversal",
+        "description": [`/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrder = function(root) {
+    if(root===null)
+        return []
+    let queue=[]
+    let counter=0;
+    queue.push(root)
+    let current
+    let result=[]
+    let holder=[]
+    while(queue.length!=0){
+        current=queue.pop();
+        
+        if(Math.pow(2,holder.length+1)==counter)
+            {
+                holder.push(result);
+             result=[]
+                counter=0;
+            }
+         result.push(current.val)
+        counter+=2;
+        if(current.right!=null){
+            
+            queue.push(current.right)}
+        if(current.left!=null){
+            
+            queue.push(current.left)}
+       
+    }
+    holder.push(result)
+    return holder
+};
+        `],
+        "input": "Just study the code,
+        "output": "study the code",
       }
     ];
     res.json(instructions);
