@@ -102,7 +102,72 @@ var levelOrder = function(root) {
         `],
         "input": "Just study the code,
         "output": "study the code",
-      }
+      },
+        {id: 6,
+         lesson: `Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+
+Example:
+
+Input: 1->2->4, 1->3->4
+Output: 1->1->2->3->4->4
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var mergeTwoLists = function(l1, l2) {
+    let result= new ListNode(0);
+    if(l1==null || l2==null)
+        return result
+
+    let current1=l1;
+    let current2=l2;
+    let currentResult=result 
+    while(current1!=null || current2!=null)
+        {
+            if (current1!=null && current2!=null)
+                {
+                    if( current1.val< current2.val)
+                        {
+                            
+                         currentResult.val=current1.val
+                         current1=current1.next   
+                        }
+                    else{
+                        currentResult.val=current2.val
+                        current2=current2.next
+                    }
+                
+                }
+            else if (current1==null)
+                {
+                    currentResult.val=current2.val;
+                    current2=current2.next;
+                }
+            else if(current2==null)
+                {
+                    currentResult.val=current1.val;
+                    current1=current1.next;
+                }
+                         currentResult.next=new ListNode();
+                         currentResult=currentResult.next;   
+        }
+    
+    return result
+};`],
+        "input": "Just study the code,
+        "output": "study the code",
+      },
+
+        
+        }
     ];
     res.json(instructions);
     console.log('Sent list of instructions!');
