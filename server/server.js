@@ -167,7 +167,46 @@ var mergeTwoLists = function(l1, l2) {
       },
 
         
+        },
+        
+        {
+        "id": 5,
+        "lesson": "Matrix Zeroes",
+        "description": [`
+     /**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var setZeroes = function(matrix) {
+    if(matrix==null)
+        return;
+    let zeroes=[]
+    for(let  i = 0; i<matrix.length; i++)
+        {
+            for(let j=0; j<matrix[0].length; j++)
+                {
+                    if(matrix[i][j]===0)
+                        zeroes.push([i,j])
+                }
         }
+    
+    while(zeroes.length!=0)
+{
+    let current=zeroes.pop();
+    for( let i =0; i<matrix[0].length; i++)
+        {
+            matrix[current[0]][i]=0;
+        }
+
+    for( let i =0; i<matrix.length; i++)
+        {
+            matrix[i][current[1]]=0;
+        }
+}   `],
+        "input": "Just study the code,
+        "output": "study the code",
+      }
+        
     ];
     res.json(instructions);
     console.log('Sent list of instructions!');
@@ -178,7 +217,7 @@ app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'../client/build/index.html'));
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT ||  5000;
 app.listen(port);
 
 console.log('App is listening on port ' + port);
