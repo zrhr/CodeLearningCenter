@@ -205,7 +205,57 @@ var setZeroes = function(matrix) {
 }   `],
         "input": "Just study the code,
         "output": "study the code",
-      }
+      },
+        {id: 6,
+         lesson: `There are a total of n courses you have to take, labeled from 0 to n-1.
+
+Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]
+
+Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?
+
+Example 1:
+
+Input: 2, [[1,0]] 
+Output: true
+Explanation: There are a total of 2 courses to take. 
+             To take course 1 you should have finished course 0. So it is possible./**
+ * @param {number} numCourses
+ * @param {number[][]} prerequisites
+ * @return {boolean}
+ */
+var canFinish = function(numCourses, prerequisites) {
+    //pairs are the edges of the graph
+    
+    var stack=[];
+    if (numCourses==0 || prerequisites.length==0)
+        return true;
+    stack.push(prerequisites[0])
+let current=[];
+ let visited = []
+ result =true;
+  let  count=0;
+    while(stack.length!=0)
+        {
+            current =stack.pop()
+            console.log(current)
+            count++;
+            if(visited.indexOf(current[0])==-1)
+            visited.push(current[1])
+            else
+                result=false;
+            
+            if(prerequisites.length>count)
+                stack.push(prerequisites[count])
+            
+        }
+    return result
+};`],
+        "input": "Just study the code,
+        "output": "study the code",
+      },
+
+        
+        }
         
     ];
     res.json(instructions);
