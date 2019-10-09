@@ -9,6 +9,38 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 // An api endpoint that returns a short list of items
 app.get('/api/getInstructions', (req,res) => {
     const instructions = [
+          {
+        "id": 10,
+        "lesson": "Anagram",
+        "description": [
+          `/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    let hashmap={};
+    let result=true;
+    if(s.length!=t.length)
+        result=false;
+    for(let i=0; i<t.length; i++)
+        {
+            let index=s.indexOf(t[i])
+            console.log(index)
+            if(index==-1)
+                result=false
+            else
+             s=   s.replace(t[i].toString(), "")
+                
+            console.log(s)
+            
+        }
+        return result;
+};`
+        ],
+        "input": "World",
+        "output": "Hello World\n",
+      },
       {
         "id": 1,
         "lesson": "Console",
