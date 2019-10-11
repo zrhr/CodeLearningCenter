@@ -8,7 +8,37 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 
 // An api endpoint that returns a short list of items
 app.get('/api/getInstructions', (req,res) => {
-    const instructions = [
+    const instructions = [{
+        "id": 11,
+        "lesson": "Duplicate Encoder",
+        "description": [`The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.`,
+                        
+         `function duplicateEncode(word){
+    // I must look through string and find duplicates and then do it
+    // I must first go to lower case.
+    var j=word.toLowerCase();
+    
+    var x= "";
+for(i=0; i<j.length; i++)
+{
+var indices = [];
+var element = j[i];
+var idx = j.indexOf(element);
+while (idx != -1) {
+  indices.push(idx);
+  idx = j.indexOf(element, idx + 1);
+}
+if(indices[1])
+x+=')';
+else
+x+='(';
+}
+return x;
+}`
+        ],
+        "input": "Success",
+        "output": ")())())\n",
+      },
           {
         "id": 10,
         "lesson": "Anagram",
