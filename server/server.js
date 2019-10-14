@@ -8,7 +8,51 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 
 // An api endpoint that returns a short list of items
 app.get('/api/getInstructions', (req,res) => {
-    const instructions = [{
+    const instructions = [
+        {
+        "id": 12,
+        "lesson": "String suppattern recognition without repeating char",
+        "description": [`function hasSubpattern(string){
+  //your code here
+  let queue=[];
+  if(string.length>2)
+  queue.push(string[0]);
+  else 
+  return false;
+  let result=true;
+  
+  for(let i=1; i<string.length; i++)
+  {console.log(string[i])
+    if(string[i]==queue[0])
+    {
+     for(let j=1; j<queue.length; j++)
+     { 
+     
+       if(string[i+1]!=queue[j])
+       result=false;
+       i++;
+       console.log(string[i-1],"test")
+     }
+  
+    }
+    else{ 
+    if (i+1==string.length)
+    {
+    console.log("end")
+     result=false; 
+    }
+    else
+      {
+      queue.push(string[i])
+      }
+    }
+  }
+    return result  
+}`],
+        "input": "World",
+        "output": "Hello World\n",
+      },
+        {
         "id": 11,
         "lesson": "Duplicate Encoder",
         "description": [`The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.`,
