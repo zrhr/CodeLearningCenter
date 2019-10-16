@@ -2,6 +2,20 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
+/*
+{
+
+        "id": 1,
+        "lesson": "Console",
+        "description": [
+          "The console is a panel that displays important messages, like errors, for developers. Much of the work the computer does with our code is invisible to us by default. If we want to see things appear on our screen, we can print, or log, to our console directly.",
+          "In JavaScript, the console keyword refers to an object, a collection of data and actions, that we can use in our code. One action, or method, that is built into the console object is the .log() method. When we write console.log() what we put inside the parentheses will get printed, or logged, to the console.",
+          "On the right type 'console.log(\"Hello World\")' or 'console.log(\"World\")' to see the value printed to the console."
+        ],
+        "input": "World",
+        "output": "Hello World\n",
+      },
+          */
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
@@ -9,7 +23,41 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 // An api endpoint that returns a short list of items
 app.get('/api/getInstructions', (req,res) => {
     const instructions = [
+       {
+
+        "id": 13,
+        "lesson": "Find the missing number",
+        "description": [`/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function(nums) {
+    if(nums.length==0)
+        return 0;
+
+    let charMap={};
+    for(let i =0; i<nums.length+1; i++)
         {
+            charMap[i]=false;
+        }
+    for(let i =0; i<nums.length+1; i++)
+        {
+            charMap[nums[i]]=true;
+        }
+    let result;
+    for(let i =0; i<nums.length+1; i++)
+        {
+            if(charMap[i]==false)
+                result=i;
+        }
+    return result;
+    
+};` ],
+        "input": "[0,1,2]",
+        "output": "3",
+      },
+        {
+       
         "id": 12,
         "lesson": "String suppattern recognition without repeating char",
         "description": [`function hasSubpattern(string){
