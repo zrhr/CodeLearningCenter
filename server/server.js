@@ -15,6 +15,7 @@ const app = express();
         "input": "World",
         "output": "Hello World\n",
       },
+      
           */
 
 // Serve the static files from the React app
@@ -23,7 +24,79 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 // An api endpoint that returns a short list of items
 app.get('/api/getInstructions', (req,res) => {
     const instructions = [
-       {
+       {{
+
+        "id": 14,
+        "lesson": "Mixed Fractions",
+        "description": [
+          `function mixedFraction(s){
+  //your code hereif
+  
+  if(s===null)
+  return null;
+  
+  numerator=s.split("/");
+  var negativeFlag=false;
+  denominator=numerator[1];
+  numerator=numerator[0];
+  if(denominator==0)
+  throw ZeroDivisionError
+  if(numerator.charAt(0)==='-')
+  
+  {
+  numerator=Math.abs(numerator)
+  if(denominator.charAt(0)!='-')
+  negativeFlag=true;
+  else
+  denominator=Math.abs(denominator)
+  }
+  else
+  {
+  if(denominator.charAt(0)=='-')
+  negativeFlag=true;
+  denominator=Math.abs(denominator)
+  }
+  console.log(numerator,denominator)
+   if(numerator==0)
+  return '0';
+if(numerator% denominator===0)
+  return negativeFlag ? '-'+(numerator/denominator).toString(): (numerator/denominator).toString()
+ var result=1;
+ var integer=0; 
+ var remainder=0;
+  for(let i =denominator-1; i>0; i--)
+  {
+
+
+    if(numerator%i==0 && denominator%i==0 &&i!=1)
+    {
+    if(i>result)
+    result=i;
+    }
+    if(parseInt(numerator)>denominator)
+    {
+      if((numerator-i)%denominator==0)
+      {
+      integer=(numerator-i)/denominator;
+      if(i>remainder)
+      remainder=i;
+     
+     }
+      
+    }
+  }
+  if (integer==0)
+  {
+  return negativeFlag ? '-'+(numerator/result).toString()+'/'+(denominator/result).toString(): (numerator/result).toString()+'/'+(denominator/result).toString()
+  }
+  else
+  {
+    return negativeFlag ? '-'+integer.toString()+' '+(remainder/result).toString()+'/'+(denominator/result).toString(): integer.toString()+' '+(remainder/result).toString()+'/'+(denominator/result).toString()
+  }`
+        ],
+        "input": " -10/7",
+        "output": "-1 3/7\n",
+      },
 
         "id": 13,
         "lesson": "Find the missing number",
