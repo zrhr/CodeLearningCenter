@@ -24,7 +24,63 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 // An api endpoint that returns a short list of items
 app.get('/api/getInstructions', (req,res) => {
     const instructions = [
-       {{
+            { "id": 15,
+             "lesson": "Objects",
+             "description":[`function mostMoney(students) {
+  // your code here
+  if(students.length==1)
+  return students[0].name
+  let answer, max=0, all=true, first=true;
+  let result={};
+  for(let i = 0; i < students.length; i++)
+  {
+    result[students[i].name] = students[i].fives*5+students[i].tens*10+students[i].twenties*20;
+  }
+  for(name in result)
+  {
+   if (first===true)
+   {
+   console.log("first")
+   max=result[name]
+   answer=name
+   first = false
+   console.log(name)
+   
+   }
+   else
+   {
+   if(result[name]!=max)
+   {
+     all=false;
+   }
+   
+  if(result[name]>max)
+   {
+   console.log("hi")
+     max = result[name]
+     answer=name
+     all=false;
+   }
+   
+   }
+  }
+  if(all===false)
+  return answer
+  else
+  return "all"
+}`] "input": `array of Studentsclass Student {
+  constructor(name, fives, tens, twenties) {
+    this.name = name;
+    this.fives = fives;
+    this.tens = tens;
+    this.twenties = twenties;
+  }
+}`,
+        "output": "all\n",
+      },
+             ,
+             
+            {
 
         "id": 14,
         "lesson": "Mixed Fractions",
